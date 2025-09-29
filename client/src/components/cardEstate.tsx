@@ -5,26 +5,28 @@ type card = {
     describe: string
     price: number
     location: string
+    acreage: number
 }
 function truncateText(text: string, limit: number): string {
     return text.length > limit ? text.slice(0, limit) + "..." : text
 }
 
-const CardState = ({ img, describe, price, location }: card) => {
+const CardState = ({ img, describe, price, location, acreage }: card) => {
 
     return (
-        <div className=" gap-2 max-h-full border m-2 p-2 rounded-lg bg-slate-300 hover:shadow-md hover:shadow-yellow-400 flex-col">
-            <div className="border-2 border-yellow-400 mb-2 p-2 items-center justify-center flex">
-                <img src={img} alt="No Data Picture" />
+        <div className=" gap-2 h-[600px] border m-2 p-2 rounded-lg bg-slate-300 hover:shadow-md hover:shadow-yellow-400 flex-col">
+            <div className="object-contain border-2 border-yellow-400 mb-2 p-2 items-center justify-start flex h-[50%] w-[100%]">
+                <img className="object-cover h-[80%] w-full flex" src={img} alt="No Data Picture" />
             </div>
-            <div className="h-[300px] p-2 items-center justify-center flex-col border-blue-500 border-2 rounded-lg">
+            <div className="h-[50%] p-2 items-center justify-end flex-col border-blue-500 border-2 rounded-lg">
                 <div className="justify-center flex">
                     <p className=" text-lime-600 text-lg mb-4 font-semibold">{truncateText(describe, 60)}</p>
                 </div>
                 <div className="p-2 ">
-                    <span className="">Giá : </span>
-                    {price}
-                    <span> Tr</span>
+                    <span className="">Giá : {price} Triệu</span>
+                </div>
+                <div>
+                    <span className="p-2">Diện tích : {acreage} m</span>
                 </div>
                 <div className="line-clamp-2 p-2 text-red-500">
                     <span>Vị trí :</span>

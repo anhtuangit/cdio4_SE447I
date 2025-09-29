@@ -4,11 +4,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const mongoose_1 = __importDefault(require("mongoose"));
+const user_routes_1 = __importDefault(require("./routes/user.routes"));
+const dotenv_1 = __importDefault(require("dotenv"));
 const app = (0, express_1.default)();
-const port = 3000;
-app.get('/', (req, res) => {
-    res.send('toi yeu viet nam');
-});
+dotenv_1.default.config();
+const port = process.env.PORT || 3000;
+const db = process.env.DB_URI;
+const serect = process.env.JWT_SECRECT;
+app.use(express_1.default.json());
+mongoose_1.default.connect('mongodb://localhost:27017/testdb')
+    .then(() => console.log('MongoDB connected'))
+    .catch((err) => console.error(err));
+app.use('/users', user_routes_1.default);
 app.listen(port, () => {
-    console.log(`server is running on http://localhost:${port}`);
+    console.log(`Server running at http://localhost:${port}`);
 });

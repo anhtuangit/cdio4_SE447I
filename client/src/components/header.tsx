@@ -1,9 +1,15 @@
+import Login from "../pages/login";
 import Button from "./button";
-import SearchAndFilter from "./searchAndFilter";
+import FilterDefault from "./filterDefault";
+import SearchAndFilter from "./search";
+import { useState } from "react";
 
-const data = [
+
+
+const databt = [
     {
-        name: 'Trang chủ', svg: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#B22222" stroke-width="1.5"><path stroke-linecap="round" d="M22 22H2m0-11l4.063-3.25M22 11l-8.126-6.5a3 3 0 0 0-3.748 0l-.782.625M15.5 5.5v-2A.5.5 0 0 1 16 3h2.5a.5.5 0 0 1 .5.5v5M4 22V9.5m16 0v4m0 8.5v-4.5" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 22v-5c0-1.414 0-2.121-.44-2.56C14.122 14 13.415 14 12 14s-2.121 0-2.56.44M9 22v-5" /><path d="M14 9.5a2 2 0 1 1-4 0a2 2 0 0 1 4 0Z" /></g></svg>
+        name: 'Trang chủ',
+        svg: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#B22222" stroke-width="1.5"><path stroke-linecap="round" d="M22 22H2m0-11l4.063-3.25M22 11l-8.126-6.5a3 3 0 0 0-3.748 0l-.782.625M15.5 5.5v-2A.5.5 0 0 1 16 3h2.5a.5.5 0 0 1 .5.5v5M4 22V9.5m16 0v4m0 8.5v-4.5" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 22v-5c0-1.414 0-2.121-.44-2.56C14.122 14 13.415 14 12 14s-2.121 0-2.56.44M9 22v-5" /><path d="M14 9.5a2 2 0 1 1-4 0a2 2 0 0 1 4 0Z" /></g></svg>
     },
     {
         name: 'Dự án', svg: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="6" r="1" fill="#CC5500" /><path fill="#CC5500" d="M6 17h12v2H6zm4-5.17l2.792 2.794l3.932-3.935L18 12V8h-4l1.31 1.275l-2.519 2.519L10 9l-4 4l1.414 1.414z" /><path fill="#CC5500\" d="M19 3h-3.298a5 5 0 0 0-.32-.425l-.01-.012a4.43 4.43 0 0 0-2.89-1.518a2.6 2.6 0 0 0-.964 0a4.43 4.43 0 0 0-2.89 1.518l-.01.012a5 5 0 0 0-.32.424V3H5a3.003 3.003 0 0 0-3 3v14a3.003 3.003 0 0 0 3 3h14a3.003 3.003 0 0 0 3-3V6a3.003 3.003 0 0 0-3-3m1 17a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h4.55a2.5 2.5 0 0 1 4.9 0H19a1 1 0 0 1 1 1Z" /></svg>
@@ -22,12 +28,11 @@ const data = [
     }
 ]
 
-
 const Header = () => {
 
     return (
-        <div className="flex-col text-white bg-gray-200">
-            <div className="flex bg-sky-800 w-[100%] ">
+        <div className="flex-col text-white bg-gray-200 h-20">
+            <div className="flex bg-sky-800 w-[100%] h-20 fixed top-0 z-50">
                 <div className="  items-center flex h-20 w-[30%] justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 32 32"><path fill="currentColor" d="M30.48 18.29h-1.53v-1.52h-1.52v-1.53h-1.52V0H10.67v9.15H9.14V6.1H6.1V1.53H4.57V6.1H1.52v3.05H0V32h30.48v-9.14H32v-3.05h-1.52ZM3.05 7.62h4.57v1.53H3.05Zm7.62 12.19H9.14v3.05h1.53v7.62H1.52V10.67h9.15Zm1.52-18.28h12.19V12.2h-1.52v-1.53h-1.53V9.15h-1.52v1.52h-1.52v1.53h-1.53v1.52h-1.52v1.52h-1.52v1.53h-1.53Zm16.76 28.95h-4.57v-6.09h-1.52v6.09h-4.57v-1.52h1.52v-1.53h-1.52v-3.04h-1.53v6.09h-4.57V19.81h1.53v-1.52h1.52v-1.52h1.52v-1.53h1.53v-1.52h1.52V12.2h1.52v1.52h1.53v1.52h1.52v1.53h1.53v1.52h1.52v1.52h1.52Z" /><path fill="currentColor" d="M15.24 19.81h10.67v1.53H15.24Zm3.05 3.05h4.57v1.53h-4.57Zm1.52-19.81h3.05V6.1h-3.05Zm-6.09 4.57h3.04v3.05h-3.04Zm0-4.57h3.04V6.1h-3.04ZM4.57 25.91h3.05v3.05H4.57Zm0-6.1h3.05v3.05H4.57Zm0-6.09h3.05v3.05H4.57Z" /></svg>
                     <span className="text-xl font-bold pl-2">Real Estate</span>
@@ -49,8 +54,8 @@ const Header = () => {
                     </a>
                 </div>
             </div>
-            <div className=" gap-2 flex items-center border-2 justify-center h-[70px] min-w-full ">
-                {data.map((item, index) => (
+            <div className="mt-20 gap-2 flex items-center border-2 justify-center h-[90px] min-w-full sticky top-0">
+                {databt.map((item, index) => (
                     <Button key={index} svg={item.svg} name={item.name} />
                 ))}
             </div>
