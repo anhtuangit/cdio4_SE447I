@@ -6,7 +6,6 @@ const userSchema = new mongoose_1.Schema({
     pass: { type: String, required: true },
     email: { type: String, required: true, unique: true, trim: true, maxlength: 100 },
     phone: { type: String, maxlength: 15 },
-    name: { type: String, maxlength: 100 },
     address: { type: String, maxleghth: 500 },
     role: { type: String, enum: ['user', 'staff', 'admin'], default: 'user' },
     status: { type: String, enum: ['unlock', 'lock'], default: 'unlock' },

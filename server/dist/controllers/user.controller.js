@@ -12,6 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getAllUsers = void 0;
 const user_models_1 = __importDefault(require("../models/user.models"));
 const getAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -20,7 +21,7 @@ const getAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         res.status(200).json(users);
     }
     catch (error) {
-        res.status(500).json({ message: 'Error fetching users' });
+        res.status(500).json({ message: error });
     }
 });
-exports.default = { getAllUsers };
+exports.getAllUsers = getAllUsers;

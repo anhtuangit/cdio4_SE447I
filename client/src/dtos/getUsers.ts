@@ -4,7 +4,6 @@ export interface IUser {
     pass: string
     email: string
     phone: string
-    name: string
     address: string
     role: string
     status: string
