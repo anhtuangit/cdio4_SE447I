@@ -3,6 +3,8 @@ import { Suspense } from 'react'
 import Layout from './layout/layout.main';
 import Home from './pages/home';
 import Login from './pages/login';
+import HomeSale from './pages/homesale';
+import Register from './pages/register';
 
 const App = () => {
   return (
@@ -13,6 +15,8 @@ const App = () => {
             <Route index element={<Home />} />
           </Route>
           <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/homesale' element={<HomeSale/>} />
         </Routes>
       </Suspense>
     </BrowserRouter>
