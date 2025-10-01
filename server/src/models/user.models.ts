@@ -1,8 +1,20 @@
-import mongoose, { Schema, Document, HydratedDocument, Model } from 'mongoose';
-import { IUser } from '../types/user.types';
+import {Schema, Document, model} from 'mongoose';
 
+export interface IUser extends Document {
+  loginName:String
+  pass:String
+  email: String
+  phone: String
+  name?:String
+  address?: String
+  role?:String
+  status?:String
+  dateCreate?: Date
+  dateUpdate?: Date
 
-const userSchema = new Schema<IUser> extend Document({
+}
+
+const userSchema = new Schema<IUser>({
   loginName:{ type: String, required: true},
   pass:{ type: String, required:true},
   email:{ type: String, required:true, unique:true, trim: true, maxlength: 100},
@@ -14,8 +26,7 @@ const userSchema = new Schema<IUser> extend Document({
   dateCreate:{ type: Date, default: Date.now},
   dateUpdate:{ type: Date, default: Date.now}
 
+},{timestamps: true});
 
-});
-
-const User: Model<IUser> = mongoose.model<IUser>('User', userSchema);
-export default User;
+const userModel = model<IUser>("User", userSchema)
+export default userModel;

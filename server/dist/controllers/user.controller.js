@@ -12,28 +12,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const user_service_1 = __importDefault(require("../services/user.service"));
+const user_models_1 = __importDefault(require("../models/user.models"));
 const getAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const users = yield user_service_1.default.getAllUsers();
-        res.json(users);
+        let query = {};
+        const users = yield user_models_1.default.find(query);
+        res.status(200).json(users);
     }
     catch (error) {
         res.status(500).json({ message: 'Error fetching users' });
     }
 });
-const getUserById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const { id } = req.params;
-        const user = yield user_service_1.default.getUserById(id);
-        if (!user) {
-            res.status(404).json({ message: 'User not found' });
-            return;
-        }
-        res.json(user);
-    }
-    catch (error) {
-        res.status(500).json({ message: 'Error fetching user' });
-    }
-});
-exports.default = { getAllUsers, getUserById };
+exports.default = { getAllUsers };

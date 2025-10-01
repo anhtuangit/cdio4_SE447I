@@ -1,29 +1,15 @@
 import { Request, Response } from 'express';
-import userService from '../services/user.service';
+import userModel, { IUser } from '../models/user.models';
 
-const getAllUsers = async (req: Request, res: Response): Promise<void> => {
+const getAllUsers = async (req: Request, res: Response) => {
   try {
-    const users = await userService.getAllUsers();
-    res.json(users);
+    let query = {} as any
+    const users = await userModel.find(query) as IUser[];
+    res.status(200).json(users);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching users' });
   }
 };
 
-const getUserById = async (req: Request, res: Response): Promise<void> => {
-  try {
-    const { id } = req.params;
-    const user = await userService.getUserById(id);
 
-    if (!user) {
-      res.status(404).json({ message: 'User not found' });
-      return;
-    }
-
-    res.json(user);
-  } catch (error) {
-    res.status(500).json({ message: 'Error fetching user' });
-  }
-};
-
-export default { getAllUsers, getUserById };
+export default { getAllUsers };
