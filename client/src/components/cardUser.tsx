@@ -1,27 +1,33 @@
 import type { IUser } from "../dtos/getUsers";
-import img from "../../public/avataradm.jpg"
+import img from "../../public/avataradm.jpg";
 
-const CardUser = ({ loginName, email, role, status, dateCreate, dateUpdate }: IUser) => {
-
+const CardUser = ({ email, dateUpdate, status }: IUser) => {
     return (
-        <div className="flex h-24 w-[100%] rounded-lg border-2 mt-4 self-start">
-            <img className="ml-4 border-[8px] border-gray-400 rounded-full justify-start items-center flex " src={img} alt="No picture" />
-            <a className="flex flex-col h-full w-[30%] ml-4 pt-4">
-                <span>Name: {loginName}</span>
-                <span>Email: {email}</span>
-            </a>
+        <div className="flex items-center justify-between w-full border rounded-lg p-3 shadow-sm bg-white">
+            {/* Avatar + Thông tin */}
+            <div className="flex items-center space-x-3">
+                <img
+                    src={img}
+                    alt="avatar"
+                    className="w-10 h-10 rounded-full border object-cover"
+                />
+                <div>
+                    <p className="text-sm font-medium">{email}</p>
+                    <p className="text-xs text-gray-500">Đăng nhập vào: {dateUpdate}</p>
+                </div>
+            </div>
 
-            <a className="flex flex-col h-full w-[30%] ml-4 pt-4">
-                <span>Role: {role}</span>
-                <span>Status: {status}</span>
-            </a>
-
-            <a className="flex flex-col h-full w-[30%] ml-4 pt-4">
-                <span>Create: {dateCreate}</span>
-                <span>Update: {dateUpdate}</span>
-            </a>
+            {/* Các nút chức năng */}
+            <div className="flex space-x-2">
+                <button className="flex items-center px-3 py-1 text-sm border rounded-lg hover:bg-gray-100">
+                    👁 Xem
+                </button>
+                <button className="flex items-center px-3 py-1 text-sm border rounded-lg hover:bg-gray-100">
+                    🔒 Vô hiệu hóa
+                </button>
+            </div>
         </div>
     );
-}
+};
 
 export default CardUser;
