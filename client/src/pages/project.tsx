@@ -167,46 +167,42 @@ const Project: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50">
-            {/* Hero Section */}
-            <div className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-20 text-center">
+        <div className="min-h-screen bg-gray-50 text-sm ">
+            <div className="bg-gray-400 text-white py-6 text-center">
                 <div className="container mx-auto px-4">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-md">Dự Án Bất Động Sản</h1>
-                    <p className="text-xl opacity-90 max-w-2xl mx-auto">
+                    <h1 className="text-xl md:text-xl font-bold mb-4 drop-shadow-md">Dự Án Bất Động Sản</h1>
+                    <p className="text-lg opacity-90 max-w-xl mx-auto">
                         Khám phá các dự án hot nhất và thông tin thị trường cập nhật
                     </p>
                 </div>
             </div>
 
             <div className="container mx-auto px-4 max-w-7xl">
-                {/* Tabs */}
                 <div className="py-10">
                     <div className="flex flex-col md:flex-row justify-center gap-4 mb-8">
                         <button
                             className={`py-3 px-6 border-2 border-indigo-500 rounded-full font-semibold transition-all
-                ${activeTab === 'projects' ? 'bg-indigo-500 text-white' : 'bg-white text-indigo-500 hover:bg-indigo-500 hover:text-white'}`}
+                ${activeTab === 'projects' ? 'bg-sky-500 text-white' : 'bg-white text-sky-500 hover:bg-sky-500 hover:text-white'}`}
                             onClick={() => setActiveTab('projects')}
                         >
                             Dự Án Nổi Bật
                         </button>
                         <button
                             className={`py-3 px-6 border-2 border-indigo-500 rounded-full font-semibold transition-all
-                ${activeTab === 'market' ? 'bg-indigo-500 text-white' : 'bg-white text-indigo-500 hover:bg-indigo-500 hover:text-white'}`}
+                ${activeTab === 'market' ? 'bg-sky-500 text-white' : 'bg-white text-sky-500 hover:bg-sky-500 hover:text-white'}`}
                             onClick={() => setActiveTab('market')}
                         >
                             Thị Trường
                         </button>
                         <button
                             className={`py-3 px-6 border-2 border-indigo-500 rounded-full font-semibold transition-all
-                ${activeTab === 'news' ? 'bg-indigo-500 text-white' : 'bg-white text-indigo-500 hover:bg-indigo-500 hover:text-white'}`}
+                ${activeTab === 'news' ? 'bg-sky-500 text-white' : 'bg-white text-sky-500 hover:bg-sky-500 hover:text-white'}`}
                             onClick={() => setActiveTab('news')}
                         >
                             Tin Tức
                         </button>
                     </div>
                 </div>
-
-                {/* Projects Tab */}
                 {activeTab === 'projects' && (
                     <section className="py-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -262,7 +258,6 @@ const Project: React.FC = () => {
                     </section>
                 )}
 
-                {/* Market Tab */}
                 {activeTab === 'market' && (
                     <section className="py-4">
                         <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">Thông Tin Thị Trường</h2>
@@ -339,7 +334,6 @@ const Project: React.FC = () => {
                     </section>
                 )}
 
-                {/* News Tab */}
                 {activeTab === 'news' && (
                     <section className="py-4">
                         <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">Tin Tức Bất Động Sản</h2>
@@ -387,7 +381,6 @@ const Project: React.FC = () => {
                 )}
             </div>
 
-            {/* Project Detail Modal */}
             {selectedProject && (
                 <div
                     className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"

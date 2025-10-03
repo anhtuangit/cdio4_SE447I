@@ -3,10 +3,9 @@ import React from 'react';
 const Introduce: React.FC = () => {
     return (
         <div className="min-h-screen bg-gray-50">
-            {/* Hero Section */}
             <div className="bg-gradient-to-br from-indigo-500 to-purple-600 text-white py-20 text-center">
                 <div className="container mx-auto px-4">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-md">Về Bất Động Sản Việt</h1>
+                    <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-md">Về Real-Estate</h1>
                     <p className="text-xl opacity-90 max-w-xl mx-auto">
                         Nền tảng trung gian mua bán bất động sản hàng đầu Việt Nam
                     </p>
@@ -14,7 +13,6 @@ const Introduce: React.FC = () => {
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                {/* Intro Section */}
                 <section className="py-16">
                     <div className="container mx-auto">
                         <h2 className="text-4xl text-gray-800 text-center mb-12 relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-gradient-to-r after:from-indigo-500 after:to-purple-600 after:rounded">
@@ -22,7 +20,7 @@ const Introduce: React.FC = () => {
                         </h2>
                         <div className="max-w-3xl mx-auto">
                             <p className="text-lg leading-relaxed text-gray-600 mb-6 text-center">
-                                Bất Động Sản Việt là nền tảng công nghệ hàng đầu trong lĩnh vực bất động sản tại Việt Nam.
+                                Real-Estate là nền tảng công nghệ hàng đầu trong lĩnh vực bất động sản tại Việt Nam.
                                 Chúng tôi kết nối người mua, người bán và các chuyên gia bất động sản thông qua một hệ thống
                                 minh bạch, an toàn và hiệu quả.
                             </p>
@@ -33,8 +31,6 @@ const Introduce: React.FC = () => {
                         </div>
                     </div>
                 </section>
-
-                {/* Services Section */}
                 <section className="py-16">
                     <div className="container mx-auto">
                         <h2 className="text-4xl text-gray-800 text-center mb-12 relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-gradient-to-r after:from-indigo-500 after:to-purple-600 after:rounded">
@@ -65,7 +61,6 @@ const Introduce: React.FC = () => {
                     </div>
                 </section>
 
-                {/* Problems Section */}
                 <section className="py-16">
                     <div className="bg-white rounded-xl shadow-md p-10 my-10">
                         <h2 className="text-4xl text-gray-800 text-center mb-12 relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-gradient-to-r after:from-indigo-500 after:to-purple-600 after:rounded">
@@ -154,11 +149,10 @@ const Introduce: React.FC = () => {
                     </div>
                 </section>
 
-                {/* Why Choose Us */}
                 <section className="py-16">
                     <div className="bg-gradient-to-r from-pink-400 to-red-400 text-white rounded-xl p-10 my-10">
                         <h2 className="text-4xl text-center mb-12 relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-white after:rounded">
-                            Tại sao chọn Bất Động Sản Việt?
+                            Tại sao chọn Real-Estate?
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
                             <div className="bg-white bg-opacity-10 p-8 rounded-xl text-center">
@@ -181,7 +175,6 @@ const Introduce: React.FC = () => {
                     </div>
                 </section>
 
-                {/* Contact Section */}
                 <section className="py-16">
                     <div className="bg-gray-800 text-white rounded-xl p-10 my-10">
                         <h2 className="text-4xl text-center mb-12 relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-blue-500 after:rounded">
@@ -194,11 +187,11 @@ const Introduce: React.FC = () => {
                             </div>
                             <div className="bg-white bg-opacity-10 p-6 rounded-xl text-center">
                                 <h3 className="text-xl text-blue-400 mb-4 font-semibold">📧 Email</h3>
-                                <p className="leading-relaxed">support@batdongsanviet.com</p>
+                                <p className="leading-relaxed">support@realestate.com</p>
                             </div>
                             <div className="bg-white bg-opacity-10 p-6 rounded-xl text-center">
                                 <h3 className="text-xl text-blue-400 mb-4 font-semibold">🏢 Văn phòng</h3>
-                                <p className="leading-relaxed">123 Nguyễn Huệ, Quận 1, TP.HCM</p>
+                                <p className="leading-relaxed">123 Nguyễn Huệ, Liên Chiểu, Đà Nẵng</p>
                             </div>
                             <div className="bg-white bg-opacity-10 p-6 rounded-xl text-center">
                                 <h3 className="text-xl text-blue-400 mb-4 font-semibold">⏰ Giờ làm việc</h3>

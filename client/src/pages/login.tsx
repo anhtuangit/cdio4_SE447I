@@ -1,21 +1,17 @@
+
+
 const Login = () => {
     return (
-        <div className="h-screen w-full items-center justify-center flex bg-gray-600">
-            <div className="h-[30rem] w-[35rem] rounded-xl flex-col bg-white flex p-6 items-center">
-                <div className=" flex flex-col h-[8rem] w-[100%] items-center pt-6">
-                    <span className="text-3xl font-bold pb-2">Đăng nhập</span>
-                    <span>Chào mừng bạn quay trở lại !</span>
+        <div className="pt-20 px-10 mb-10 h-screen">
+            <div className='flex flex-col items-center gap-6 mt-20'>
+                <button className="bg-slate-500 google-login hover:scale-105 active:scale-95 border rounded-lg w-[20%] justify-center items-center flex" aria-label='login with google'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="130" height="130" viewBox="0 0 512 168"><path fill="#ff302f" d="m496.052 102.672l14.204 9.469c-4.61 6.79-15.636 18.44-34.699 18.44c-23.672 0-41.301-18.315-41.301-41.614c0-24.793 17.816-41.613 39.308-41.613c21.616 0 32.206 17.193 35.633 26.475l1.869 4.735l-55.692 23.049c4.236 8.348 10.84 12.584 20.183 12.584c9.345 0 15.823-4.61 20.495-11.525M452.384 87.66l37.19-15.45c-2.056-5.17-8.16-8.845-15.45-8.845c-9.281 0-22.176 8.223-21.74 24.295" /><path fill="#20b15a" d="M407.407 4.931h17.94v121.85h-17.94z" /><path fill="#3686f7" d="M379.125 50.593h17.318V124.6c0 30.711-18.128 43.357-39.558 43.357c-20.183 0-32.33-13.58-36.878-24.606l15.885-6.604c2.865 6.79 9.78 14.827 20.993 14.827c13.767 0 22.24-8.535 22.24-24.482v-5.98h-.623c-4.112 4.983-11.961 9.468-21.928 9.468c-20.807 0-39.87-18.128-39.87-41.488c0-23.486 19.063-41.8 39.87-41.8c9.905 0 17.816 4.423 21.928 9.282h.623zm1.245 38.499c0-14.702-9.78-25.417-22.239-25.417c-12.584 0-23.174 10.715-23.174 25.417c0 14.514 10.59 25.042 23.174 25.042c12.46.063 22.24-10.528 22.24-25.042" /><path fill="#ff302f" d="M218.216 88.78c0 23.984-18.688 41.613-41.613 41.613c-22.924 0-41.613-17.691-41.613-41.613c0-24.108 18.689-41.675 41.613-41.675c22.925 0 41.613 17.567 41.613 41.675m-18.19 0c0-14.95-10.84-25.23-23.423-25.23S153.18 73.83 153.18 88.78c0 14.826 10.84 25.23 23.423 25.23c12.584 0 23.423-10.404 23.423-25.23" /><path fill="#ffba40" d="M309.105 88.967c0 23.984-18.689 41.613-41.613 41.613c-22.925 0-41.613-17.63-41.613-41.613c0-24.108 18.688-41.613 41.613-41.613c22.924 0 41.613 17.443 41.613 41.613m-18.253 0c0-14.95-10.839-25.23-23.423-25.23s-23.423 10.28-23.423 25.23c0 14.826 10.84 25.23 23.423 25.23c12.646 0 23.423-10.466 23.423-25.23" /><path fill="#3686f7" d="M66.59 112.328c-26.102 0-46.534-21.056-46.534-47.158c0-26.101 20.432-47.157 46.534-47.157c14.079 0 24.357 5.544 31.957 12.646l12.522-12.521C100.479 7.984 86.338.258 66.59.258C30.833.259.744 29.414.744 65.17s30.089 64.912 65.846 64.912c19.312 0 33.889-6.354 45.289-18.19c11.711-11.712 15.324-28.158 15.324-41.489c0-4.174-.498-8.472-1.059-11.649H66.59v17.318h42.423c-1.246 10.84-4.672 18.253-9.718 23.298c-6.105 6.168-15.76 12.958-32.705 12.958" /></svg>
+                </button>
+                <div className='flex flex-col items-center gap-4 text-center text-lg'>
+                    <p className='text-2xl font-bold'>Real-Estate</p>
+                    <p className='text-green-500'>Chào mừng Quý khách đến với trang đăng nhập hệ thống bất động sản – nơi kết nối cơ hội và ngôi nhà mơ ước của bạn!!</p>
+                    <p className='text-sky-500'>Đăng nhập để cùng nhau khám phá những ngôi nhà tốt</p>
                 </div>
-                <div className="flex flex-col h-[5rem] w-[100%] ">
-                    <label className="pl-2">Tên đăng nhập</label>
-                    <input className="focus:border-blue-400 border-2 border-gray-300 outline-0 bg-transparent h-10 rounded-lg items-center justify-center m-2 flex" type="text" placeholder=" Nhập tên đăng nhập" />
-                </div>
-                <div className="flex flex-col h-[5rem] w-[100%] ">
-                    <label className="pl-2">Mật khẩu</label>
-                    <input className="focus:border-blue-400 border-2 border-gray-300 bg-transparent outline-0 h-10 rounded-lg items-center justify-center m-2 flex" type="text" placeholder=" Nhập mật khẩu" />
-                </div>
-                <button className="h-[2.5rem] bg-sky-400 w-[97%] rounded-lg text-white p-2 m-2 active:scale-95 hover:bg-blue-700">Đăng Nhập</button>
-                <p>Chưa có tài khoản ?  <a className="text-blue-600 font-bold" href="/register">Đăng ký ngay</a></p>
             </div>
         </div>
     );

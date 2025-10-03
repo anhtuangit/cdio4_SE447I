@@ -2,6 +2,7 @@ type cardFilter = {
     name: string
 }
 
+
 const FilterDefault = ({ name }: cardFilter) => {
 
     return (

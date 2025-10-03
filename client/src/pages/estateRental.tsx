@@ -1,6 +1,6 @@
-import h1 from '../../public/anh1.jpg';
-import h2 from '../../public/anh3.jpg'
+
 import { FaRegHeart } from "react-icons/fa";
+import FilterPrice from '../components/filterPrice';
 
 
 const EstateRental = () => {
@@ -11,7 +11,7 @@ const EstateRental = () => {
       price: "12 triệu/tháng",
       area: "65 m²",
       location: "Quận 1, TP.HCM",
-      image: h1,
+      image: "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg",
       owner: "Nguyen Van A",
       type: "Căn hộ"
     },
@@ -21,7 +21,7 @@ const EstateRental = () => {
       price: "18 triệu/tháng",
       area: "110 m²",
       location: "Quận 7, TP.HCM",
-      image: h2,
+      image: "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg",
       owner: "Tran Thi B",
       type: "Nhà phố"
     },
@@ -31,7 +31,7 @@ const EstateRental = () => {
       price: "40 triệu/tháng",
       area: "250 m²",
       location: "Thảo Điền, Quận 2",
-      image: h1,
+      image: "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg",
       owner: "Le Van C",
       type: "Biệt thự"
     },
@@ -41,7 +41,7 @@ const EstateRental = () => {
       price: "6 triệu/tháng",
       area: "40 m²",
       location: "Bình Thạnh, TP.HCM",
-      image: h2,
+      image: "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg",
       owner: "Pham Thi D",
       type: "Căn hộ"
     },
@@ -51,7 +51,7 @@ const EstateRental = () => {
       price: "3.5 triệu/tháng",
       area: "25 m²",
       location: "Tân Bình, TP.HCM",
-      image: h1,
+      image: "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg",
       owner: "Vo Van E",
       type: "Phòng trọ"
     },
@@ -61,7 +61,7 @@ const EstateRental = () => {
       price: "15 triệu/tháng",
       area: "80 m²",
       location: "Nha Trang",
-      image: h2,
+      image: "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg",
       owner: "Nguyen Thi F",
       type: "Căn hộ"
     },
@@ -71,7 +71,7 @@ const EstateRental = () => {
       price: "20 triệu/tháng",
       area: "120 m²",
       location: "Hà Nội",
-      image: h1,
+      image: "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg",
       owner: "Tran Van G",
       type: "Nhà phố"
     },
@@ -81,7 +81,7 @@ const EstateRental = () => {
       price: "60 triệu/tháng",
       area: "300 m²",
       location: "TP.HCM",
-      image: h2,
+      image: "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg",
       owner: "Do Thi H",
       type: "Penthouse"
     },
@@ -90,38 +90,56 @@ const EstateRental = () => {
   const categories = [...new Set(dataRent.map(item => item.type))];
 
   return (
-    <div className='w-full min-h-screen mt-8 bg-slate-200 rounded-xl p-6'>
-      <h2 className='text-2xl font-bold mb-8 text-center'>Danh Sách Nhà Cho Thuê</h2>
-      {categories.map((category) =>
-        <div key={category} className='mb-10'>
-          <h3 className='gap-6 font-semibold mb-4'>{category}</h3>
-          <div className='gap-6 flex-col m-2'>
-            {dataRent.filter(item => item.type === category).map((data) => (
-              <div
-                key={data.id}
-                className='bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transtion duration-200 flex flex-row'
-              >
-                <img
-                  src={data.image}
-                  alt={data.title}
-                  className='w-48 h-40 object-cover m-4 rounded-xl cursor-pointer'
-                />
-                <div className='p-4 flex flex-1 flex-col'>
-                  <h2 className='text-lg font-semibold mb-2'>{data.title}</h2>
-                  <p className='text-sky-500 font-bold mb-2'>{data.price}</p>
-                  <p className='text-slate-500 font-bold mb-2'>Diện tích : {data.area}</p>
-                  <p className='text-slate-500 font-bold mb-2'>Vị Trí : {data.location}</p>
-                  <p className='text-slate-500 font-bold mb-2'>Chủ cho Thuê : {data.owner}</p>
-                  <div className='mt-auto flex justify-end items-center pt-4'>
-                    <FaRegHeart className='text-slate-700 text-xl cursor-pointer hover:text-red-600' />
-                  </div>
+    <div className='w-full min-h-screen mt-8 rounded-xl p-4 flex flex-col gap-6'>
+
+      <div className='justify-center flex w-[80%] h-[10px] text-xl'>
+        <span>Danh sách bất động sản cho thuê </span>
+      </div>
+      <div className="w-full min-h-screen mt-8 rounded-xl p-6 flex flex-row gap-6">
+
+        <div className="w-[80%] bg-slate-300 min-h-screen rounded-xl p-6">
+
+          <div>
+            {categories.map((category) => (
+              <div key={category} className="mb-10">
+                <h3 className="text-lg font-semibold mb-4">{category}</h3>
+                <div className="flex flex-col space-y-6 m-2 mt-6">
+                  {dataRent
+                    .filter((item) => item.type === category)
+                    .map((data) => (
+                      <div
+                        key={data.id}
+                        className="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-200 flex flex-row"
+                      >
+                        <img
+                          src={data.image}
+                          alt={data.title}
+                          className="w-48 h-40 object-cover m-4 rounded-xl cursor-pointer"
+                        />
+                        <div className="p-4 flex-1 flex flex-col">
+                          <h2 className="text-lg font-semibold mb-2">{data.title}</h2>
+                          <p className="text-sky-500 font-bold mb-2">{data.price}</p>
+                          <p className="text-slate-500 font-bold mb-2">Diện tích : {data.area}</p>
+                          <p className="text-slate-500 font-bold mb-2">Vị Trí : {data.location}</p>
+                          <p className="text-slate-500 font-bold mb-2">Chủ cho Thuê : {data.owner}</p>
+                          <div className="mt-auto flex justify-end items-center pt-4">
+                            <FaRegHeart className="text-slate-700 text-xl cursor-pointer hover:text-red-600" />
+                          </div>
+                        </div>
+                      </div>
+                    ))}
                 </div>
               </div>
             ))}
           </div>
         </div>
-      )}
+        <div className="w-[20%] h-[900px] bg-slate-300 rounded-xl pt-16 p-2">
+          <FilterPrice />
+        </div>
+      </div>
     </div>
+
+
   )
 }
 export default EstateRental;
