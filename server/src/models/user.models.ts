@@ -1,0 +1,31 @@
+import {Schema, Document, model} from 'mongoose';
+
+export interface IUser extends Document {
+  _id: String
+  loginName:String
+  pass:String
+  email: String
+  phone: String
+  address?: String
+  role?:String
+  status?:String
+  dateCreate?: Date
+  dateUpdate?: Date
+
+}
+
+const userSchema = new Schema<IUser>({
+  loginName:{ type: String, required: true},
+  pass:{ type: String, required:true},
+  email:{ type: String, required:true, unique:true, trim: true, maxlength: 100},
+  phone:{ type: String, maxlength:15 },
+  address:{ type: String, maxleghth:500},
+  role:{ type: String, enum: ['user','staff','admin'], default:'user'},
+  status:{ type: String, enum:['unlock','lock'], default:'unlock'},
+  dateCreate:{ type: Date, default: Date.now},
+  dateUpdate:{ type: Date, default: Date.now}
+
+},{timestamps: true});
+
+const userModel = model<IUser>("User", userSchema)
+export default userModel;
