@@ -26,8 +26,7 @@ const UserList: React.FC = () => {
             </div>
             {users.map((user) => (
                 <div className="gap-2 flex-col m-2">
-                    <CardUser key={user} loginName={user.loginName} email={user.email} role={user.role} status={user.status} dateCreate={user.dateCreate} dateUpdate={user.dateUpdate} />
-
+                    <CardUser key={user} nameLogin={user.nameLogin} role={user.role} status={user.status} />
                 </div>))}
         </div>
     );

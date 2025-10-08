@@ -9,16 +9,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllUsers = void 0;
-const user_models_1 = require("../models/user.models");
-const getAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.getAllWard = void 0;
+const mongoose_1 = require("mongoose");
+const ward_models_1 = require("../models/ward.models");
+const getAllWard = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    let query = {};
     try {
-        let query = {};
-        const users = yield user_models_1.userModel.find(query);
-        res.status(200).json(users);
+        const wards = yield ward_models_1.modelWard.find(query);
+        res.status(200).json(wards);
     }
     catch (error) {
-        res.status(500).json({ message: error });
+        res.status(500).json(mongoose_1.Error.Messages);
     }
 });
-exports.getAllUsers = getAllUsers;
+exports.getAllWard = getAllWard;

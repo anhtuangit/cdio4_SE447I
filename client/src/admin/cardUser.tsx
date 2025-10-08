@@ -1,6 +1,6 @@
 import type { IUser } from "../dtos/getUsers";
 
-const CardUser = ({ email, dateUpdate, status }: IUser) => {
+const CardUser = ({ nameLogin, role, status }: IUser) => {
     return (
         <div className="flex items-center justify-between w-full border rounded-lg p-3 shadow-sm bg-white">
             <div className="flex items-center space-x-3">
@@ -10,14 +10,13 @@ const CardUser = ({ email, dateUpdate, status }: IUser) => {
                     className="w-10 h-10 rounded-full border object-cover"
                 />
                 <div>
-                    <p className="text-sm font-medium">{email}</p>
-                    <p className="text-xs text-gray-500">Đăng nhập vào: {dateUpdate}</p>
+                    <p className="text-sm font-medium">{nameLogin}</p>
+                    <p className="text-xs text-gray-500">Đăng nhập vào: {role}</p>
                 </div>
 
             </div>
             <div className="justify-start items-center flex w-[20%]">
                 <p className={status === "unlock" ? "text-green-500" : "text-red-500"}>
-                    Trạng thái: {status === "unlock" ? "Mở khóa" : "Khóa"}
                 </p>
             </div>
             <div className="flex space-x-4 w-[20%]">

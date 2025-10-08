@@ -3,7 +3,6 @@ import { Suspense } from 'react'
 import Layout from './layout/layout.main';
 import Home from './pages/home';
 import Users from './admin/userList';
-import Login from './pages/login';
 import Introduce from './pages/introduce';
 import Project from './pages/project';
 import EstateRental from './pages/estateRental';
@@ -11,6 +10,8 @@ import Profile from './pages/profile';
 import EstateSale from './pages/estateSale';
 import Utilities from './pages/utilities';
 import AdminDashBoard from './admin/adminDashboard';
+import { Login } from './pages/login';
+import { Register } from './pages/register';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path='/' element={<Layout />}>
             <Route index element={<Home />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
             <Route path='/introduce' element={<Introduce />} />
             <Route path='/project' element={<Project />} />
             <Route path='/rental' element={<EstateRental />} />

@@ -33,17 +33,10 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.modelEstate = void 0;
+exports.modelCity = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
-const estateSchema = new mongoose_1.Schema({
-    title: { type: String, required: true },
-    description: { type: String },
-    price: { type: Number, required: true },
-    address: { type: mongoose_1.Schema.Types.ObjectId, ref: "city", required: true },
-    addressDetail: { type: String, required: true, minLength: 15 },
-    category: { type: mongoose_1.Schema.Types.ObjectId, ref: "category", required: true },
-    type: { type: mongoose_1.Schema.Types.ObjectId, ref: "type", required: true },
-    img_url: { type: String, required: true },
-    id_user: { type: mongoose_1.default.Schema.Types.ObjectId, required: true }
-}, { timestamps: true });
-exports.modelEstate = (0, mongoose_1.model)("estate", estateSchema);
+const citySchema = new mongoose_1.Schema({
+    name: { type: String, required: true },
+    ward: { type: mongoose_1.default.Schema.Types.ObjectId, ref: 'ward' }
+});
+exports.modelCity = (0, mongoose_1.model)("city", citySchema);

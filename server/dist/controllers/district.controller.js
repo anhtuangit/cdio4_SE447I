@@ -9,16 +9,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllUsers = void 0;
-const user_models_1 = require("../models/user.models");
-const getAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.getAllDistrict = void 0;
+const mongoose_1 = require("mongoose");
+const district_models_1 = require("../models/district.models");
+const getAllDistrict = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    let query = {};
     try {
-        let query = {};
-        const users = yield user_models_1.userModel.find(query);
-        res.status(200).json(users);
+        const districts = yield district_models_1.modelDistrict.find(query);
+        res.status(200).json(districts);
     }
     catch (error) {
-        res.status(500).json({ message: error });
+        res.status(500).json(mongoose_1.Error.Messages);
     }
 });
-exports.getAllUsers = getAllUsers;
+exports.getAllDistrict = getAllDistrict;

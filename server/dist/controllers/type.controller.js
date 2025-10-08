@@ -9,16 +9,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllUsers = void 0;
-const user_models_1 = require("../models/user.models");
-const getAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.getAllType = void 0;
+const type_models_1 = require("../models/type.models");
+const getAllType = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    let query = {};
     try {
-        let query = {};
-        const users = yield user_models_1.userModel.find(query);
-        res.status(200).json(users);
+        const types = yield type_models_1.modelType.find(query);
+        res.status(200).json(types);
     }
     catch (error) {
-        res.status(500).json({ message: error });
+        res.status(500).json(error);
     }
 });
-exports.getAllUsers = getAllUsers;
+exports.getAllType = getAllType;
