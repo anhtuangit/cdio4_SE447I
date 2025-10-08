@@ -1,7 +1,11 @@
-import { Router } from "express";
-import { createEstate, getAllEstate } from "../controllers/estate.controller";
-import { upload } from "../middleware/upload.middleware";
+import express from 'express';
+import { getAllEstate, createEstate, updateEstate, deleteEstate } from '../controllers/estate.controller';
 
-export const estateRoutes = Router()
-estateRoutes.get('/', getAllEstate)
-estateRoutes.post("/", upload.array("images", 5), createEstate);
+export const estateRoute = express.Router();
+
+// Quản lý estate
+estateRoute.get('/', getAllEstate);
+estateRoute.post('/', createEstate);
+estateRoute.patch('/:id', updateEstate);
+estateRoute.delete('/:id', deleteEstate);
+

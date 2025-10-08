@@ -8,13 +8,42 @@ if (!fs.existsSync(uploadDir)) {
 }
 
 const storage = multer.diskStorage({
-  destination: (_req, _file, cb) => {
-    cb(null, uploadDir);
+  destination: (req, _file, cb) => {
+    const userState = req.body.state || "default"; // Lấy trạng thái từ request
+    const userDir = path.join(uploadDir, userState);
+
+    if (!fs.existsSync(userDir)) {
+      fs.mkdirSync(userDir);
+    }
+
+    cb(null, userDir);
   },
   filename: (_req, file, cb) => {
-    const uniqueName = Date.now() + "-" + file.originalname;
+    const fileExtension = path.extname(file.originalname);
+    const allowedExtensions = [".jpg", ".jpeg", ".png"];
+
+    if (!allowedExtensions.includes(fileExtension.toLowerCase())) {
+      return cb(new Error("Định dạng file không hợp lệ"), "");
+    }
+
+    const uniqueName = `${Date.now()}-${file.originalname}`;
     cb(null, uniqueName);
   },
 });
 
-export const upload = multer({ storage });
+export const upload = multer({
+  storage,
+  limits: {
+    fileSize: 5 * 1024 * 1024, 
+  },
+  fileFilter: (_req, file, cb) => {
+    const fileExtension = path.extname(file.originalname);
+    const allowedExtensions = [".jpg", ".jpeg", ".png"];
+
+    if (!allowedExtensions.includes(fileExtension.toLowerCase())) {
+      return cb(new Error("Chỉ cho phép upload file hình ảnh (.jpg, .jpeg, .png)"));
+    }
+
+    cb(null, true);
+  },
+});
