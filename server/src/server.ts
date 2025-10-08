@@ -8,6 +8,8 @@ import { estateRoutes } from './routes/estate.routes';
 import { cityRoute } from './routes/city.routes';
 import { wardRoute } from './routes/ward.routes';
 import { typeRoute } from './routes/type.routes';
+import { categoryRoute } from './routes/category.routes';
+import path from 'path';
 
 const app  = express();
 
@@ -33,7 +35,8 @@ app.use('/estates',estateRoutes)
 app.use('/cities', cityRoute)
 app.use('/wards', wardRoute)
 app.use('/types', typeRoute)
-
+app.use('/categories', categoryRoute)
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);

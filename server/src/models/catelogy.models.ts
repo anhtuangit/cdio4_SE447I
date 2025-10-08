@@ -8,4 +8,4 @@ const categorySchema = new Schema<ICategory>({
   name: { type: String, required: true }
 });
 
-export const Category = model<ICategory>("category", categorySchema);
+export const modelCategory = model<ICategory>("category", categorySchema);

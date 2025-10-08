@@ -12,6 +12,7 @@ import Utilities from './pages/utilities';
 import AdminDashBoard from './admin/adminDashboard';
 import { Login } from './pages/login';
 import { Register } from './pages/register';
+import CreateEstate from './pages/formCreate';
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
             <Route path='/profile' element={<Profile />} />
             <Route path='/sale' element={<EstateSale />} />
             <Route path='/utilities' element={<Utilities />} />
+            <Route path='/formCreate' element={<CreateEstate />} />
           </Route>
           <Route path='/' element={<AdminDashBoard />}>
             <Route path='/users' element={<Users />} />

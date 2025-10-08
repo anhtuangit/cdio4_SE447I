@@ -39,11 +39,13 @@ const estateSchema = new mongoose_1.Schema({
     title: { type: String, required: true },
     description: { type: String },
     price: { type: Number, required: true },
-    address: { type: mongoose_1.Schema.Types.ObjectId, ref: "city", required: true },
-    addressDetail: { type: String, required: true, minLength: 15 },
+    address: { type: String, required: true },
+    ward: { type: mongoose_1.default.Schema.Types.ObjectId, ref: 'ward', required: true },
     category: { type: mongoose_1.Schema.Types.ObjectId, ref: "category", required: true },
     type: { type: mongoose_1.Schema.Types.ObjectId, ref: "type", required: true },
-    img_url: { type: String, required: true },
-    id_user: { type: mongoose_1.default.Schema.Types.ObjectId, required: true }
+    bedroom: { type: Number, required: true },
+    bathroom: { type: Number, required: true },
+    img_urls: [{ type: String, required: true }],
+    id_user: { type: mongoose_1.default.Schema.Types.ObjectId, ref: 'user', required: true }
 }, { timestamps: true });
 exports.modelEstate = (0, mongoose_1.model)("estate", estateSchema);

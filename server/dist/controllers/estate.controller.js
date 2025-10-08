@@ -9,15 +9,51 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.createEstate = exports.getAllEstate = void 0;
 const estates_models_1 = require("../models/estates.models");
 const getAllEstate = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let query = {};
-        const estate = yield estates_models_1.modelEstate.find(query);
+        const estate = yield estates_models_1.modelEstate.find(query).populate([
+            { path: 'type', select: 'name' },
+            { path: 'ward', select: 'name', populate: { path: 'city', select: 'name' } },
+            { path: 'category', select: 'name' },
+            { path: 'user', select: '_id' }
+        ]);
         res.status(200).json(estate);
     }
     catch (error) {
         res.status(500).json(error);
     }
 });
-exports.default = getAllEstate;
+exports.getAllEstate = getAllEstate;
+const createEstate = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { title, description, price, address, ward, category, type, bedroom, bathroom, id_user, } = req.body;
+        // Lấy danh sách đường dẫn ảnh từ multer
+        const img_urls = req.files.map((file) => `/uploads/${file.filename}`);
+        const estate = new estates_models_1.modelEstate({
+            title,
+            description,
+            price,
+            address,
+            ward,
+            category,
+            type,
+            bedroom,
+            bathroom,
+            id_user,
+            img_urls,
+        });
+        yield estate.save();
+        res.status(201).json({
+            message: "Tạo estate thành công",
+            data: estate,
+        });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Lỗi khi tạo estate", error });
+    }
+});
+exports.createEstate = createEstate;

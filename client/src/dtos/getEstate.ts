@@ -1,13 +1,13 @@
 export interface IEstate{
-  title: string;
-  description: string;
-  price: number;
-  area: number;
-  address: string;
-  city: string
-  district: string
-  category: string
-  type: string
-  createdAt: string
-  updatedAt: string
+  title: string
+  description: string
+  price: number
+  address: string
+  ward: {_id: string, name: string, city:{_id: string,name: string}}
+  category: {_id:string, name: string}
+  type: {_id: string, name: string}
+  bedroom: number
+  bathroom: number
+  img_urls: string[]
+  id_user: {id_: string}
 }

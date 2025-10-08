@@ -352,9 +352,9 @@ const Profile: React.FC = () => {
                         <div className="px-4 py-5 sm:px-6">
                             <div className="flex justify-between items-center">
                                 <h3 className="text-lg leading-6 font-medium text-gray-900">Quản lý tin đăng của tôi</h3>
-                                <button className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                <a href='/formCreate' className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                     <FiPlusCircle className="mr-2" /> Đăng tin mới
-                                </button>
+                                </a>
                             </div>
 
                             {/* Dashboard */}
