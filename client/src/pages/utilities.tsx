@@ -62,10 +62,7 @@ const MapUtility = () => (
         <li>Xem bản đồ trực quan với chế độ vệ tinh hoặc tiêu chuẩn.</li>
         <li>Hiển thị tiện ích lân cận: trường học, bệnh viện, chợ, công viên.</li>
         <li>Ước tính thời gian di chuyển đến các điểm quan trọng chỉ trong vài giây.</li>
-      </ul>
-      <p className="mt-3 italic text-gray-500">
-        Ví dụ: Dự án A cách siêu thị 600 m, bệnh viện 1.2 km và trường học 900 m – thuận tiện cho cuộc sống hàng ngày.
-      </p>
+      </ul>    
     </div>
   </Card>
 );
@@ -201,10 +198,7 @@ const LoanCalculator = () => {
           <li>Hiển thị tổng lãi phải trả, tổng gốc + lãi để dự trù chi phí.</li>
           <li>Giúp bạn xác định được hạn mức vay phù hợp với thu nhập thực tế.</li>
         </ul>
-        <p className="mt-3 italic text-gray-500">
-          Ví dụ: Vay 1 tỷ đồng trong 15 năm, lãi suất 8%/năm → trả trung bình
-          9,9 triệu/tháng, tổng chi phí khoảng 1,78 tỷ.
-        </p>
+        
       </div>
     </Card>
   );
@@ -263,9 +257,7 @@ const BookingForm = () => {
           <li>Nhận xác nhận & nhắc lịch qua email hoặc tin nhắn SMS.</li>
           <li>Dễ dàng thay đổi hoặc hủy lịch hẹn chỉ trong 1 thao tác.</li>
         </ul>
-        <p className="mt-3 italic text-gray-500">
-          Ví dụ: Bạn đặt lịch tư vấn vào thứ 7 lúc 10h sáng – chuyên viên RealEstate sẽ gửi trước bản đồ và thông tin chi tiết để hỗ trợ bạn tận nơi.
-        </p>
+       
       </div>
     </Card>
   );
