@@ -32,20 +32,24 @@ const databt = [
         name: 'Giới thiệu',
         svg: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" /><path fill="#00ff" d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2m0 2a8 8 0 1 0 0 16a8 8 0 0 0 0-16m0 11a1 1 0 1 1 0 2a1 1 0 0 1 0-2m0-9a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0V7a1 1 0 0 1 1-1" /></g></svg>,
         href: "/introduce"
+    },
+    {
+        name: 'Menu quản trị',
+        svg: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="17" cy="15.5" r="1.12" fill="#f80f" fill-rule="evenodd" /><path fill="#f80f" fill-rule="evenodd" d="M17 17.5c-.73 0-2.19.36-2.24 1.08c.5.71 1.32 1.17 2.24 1.17s1.74-.46 2.24-1.17c-.05-.72-1.51-1.08-2.24-1.08" /><path fill="#f80f" fill-rule="evenodd" d="M18 11.09V6.27L10.5 3L3 6.27v4.91c0 4.54 3.2 8.79 7.5 9.82c.55-.13 1.08-.32 1.6-.55A5.97 5.97 0 0 0 17 23c3.31 0 6-2.69 6-6c0-2.97-2.16-5.43-5-5.91M11 17c0 .56.08 1.11.23 1.62c-.24.11-.48.22-.73.3c-3.17-1-5.5-4.24-5.5-7.74v-3.6l5.5-2.4l5.5 2.4v3.51c-2.84.48-5 2.94-5 5.91m6 4c-2.21 0-4-1.79-4-4s1.79-4 4-4s4 1.79 4 4s-1.79 4-4 4" /></svg>,
+        href: "/admin"
     }
 ]
 
 const Header = () => {
-    // const [users, setUsers] = useState<IUser[]>([])
 
     return (
-        <div className="flex-col text-white bg-gray-200 h-20">
+        <div className="flex-col text-white bg-gray-200 h-24 mb-10">
             <div className="flex bg-sky-800 w-[100%] h-20 fixed top-0 z-50">
                 <a href='/' className="  items-center flex h-20 w-[30%] justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 32 32"><path fill="currentColor" d="M30.48 18.29h-1.53v-1.52h-1.52v-1.53h-1.52V0H10.67v9.15H9.14V6.1H6.1V1.53H4.57V6.1H1.52v3.05H0V32h30.48v-9.14H32v-3.05h-1.52ZM3.05 7.62h4.57v1.53H3.05Zm7.62 12.19H9.14v3.05h1.53v7.62H1.52V10.67h9.15Zm1.52-18.28h12.19V12.2h-1.52v-1.53h-1.53V9.15h-1.52v1.52h-1.52v1.53h-1.53v1.52h-1.52v1.52h-1.52v1.53h-1.53Zm16.76 28.95h-4.57v-6.09h-1.52v6.09h-4.57v-1.52h1.52v-1.53h-1.52v-3.04h-1.53v6.09h-4.57V19.81h1.53v-1.52h1.52v-1.52h1.52v-1.53h1.53v-1.52h1.52V12.2h1.52v1.52h1.53v1.52h1.52v1.53h1.53v1.52h1.52v1.52h1.52Z" /><path fill="currentColor" d="M15.24 19.81h10.67v1.53H15.24Zm3.05 3.05h4.57v1.53h-4.57Zm1.52-19.81h3.05V6.1h-3.05Zm-6.09 4.57h3.04v3.05h-3.04Zm0-4.57h3.04V6.1h-3.04ZM4.57 25.91h3.05v3.05H4.57Zm0-6.1h3.05v3.05H4.57Zm0-6.09h3.05v3.05H4.57Z" /></svg>
                     <span className="text-xl font-bold pl-2">Real Estate</span>
                 </a>
-                <div className="flex items-center w-[40%] ">
+                <div className="flex items-center w-[40%] mt-4 ">
                     <SearchAndFilter />
                 </div>
                 <div className="w-[30%] flex items-center h-20 justify-end gap-3 pr-4">
@@ -58,6 +62,10 @@ const Header = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M13 21q-.425 0-.712-.288T12 20t.288-.712T13 19h6V5h-6q-.425 0-.712-.288T12 4t.288-.712T13 3h6q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm-1.825-8H4q-.425 0-.712-.288T3 12t.288-.712T4 11h7.175L9.3 9.125q-.275-.275-.275-.675t.275-.7t.7-.313t.725.288L14.3 11.3q.3.3.3.7t-.3.7l-3.575 3.575q-.3.3-.712.288T9.3 16.25q-.275-.3-.262-.712t.287-.688z" /></svg>
                         <span>Đăng nhập</span>
                     </a>
+                    <a href="/createEstate" className="hover:transition-colors duration-100 active:scale-95 ease-in-out hover:scale-105 hover:bg-gray-900 flex border-2 rounded-md gap-2 bg-gray-500 w-[30%]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M13 21q-.425 0-.712-.288T12 20t.288-.712T13 19h6V5h-6q-.425 0-.712-.288T12 4t.288-.712T13 3h6q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm-1.825-8H4q-.425 0-.712-.288T3 12t.288-.712T4 11h7.175L9.3 9.125q-.275-.275-.275-.675t.275-.7t.7-.313t.725.288L14.3 11.3q.3.3.3.7t-.3.7l-3.575 3.575q-.3.3-.712.288T9.3 16.25q-.275-.3-.262-.712t.287-.688z" /></svg>
+                        <span>Đăng tin</span>
+                    </a>
                     <a className="rounded-full border-2 ml-2" href="/profile">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M8 7a4 4 0 1 1 8 0a4 4 0 0 1-8 0m0 6a5 5 0 0 0-5 5a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3a5 5 0 0 0-5-5z" clip-rule="evenodd" /></svg>
                     </a>
@@ -67,9 +75,6 @@ const Header = () => {
                 {databt.map((item, index) => (
                     <Button key={index} svg={item.svg} name={item.name} href={item.href} />
                 ))}
-                {/* {role === 'admin' ? (<Button svg={<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 36 36"><path fill="currentColor" d="M14.68 14.81a6.76 6.76 0 1 1 6.76-6.75a6.77 6.77 0 0 1-6.76 6.75m0-11.51a4.76 4.76 0 1 0 4.76 4.76a4.76 4.76 0 0 0-4.76-4.76" className="clr-i-outline clr-i-outline-path-1" /><path fill="currentColor" d="M16.42 31.68A2.14 2.14 0 0 1 15.8 30H4v-5.78a14.8 14.8 0 0 1 11.09-4.68h.72a2.2 2.2 0 0 1 .62-1.85l.12-.11c-.47 0-1-.06-1.46-.06A16.47 16.47 0 0 0 2.2 23.26a1 1 0 0 0-.2.6V30a2 2 0 0 0 2 2h12.7Z" className="clr-i-outline clr-i-outline-path-2" /><path fill="currentColor" d="M26.87 16.29a.4.4 0 0 1 .15 0a.4.4 0 0 0-.15 0" className="clr-i-outline clr-i-outline-path-3" /><path fill="currentColor" d="m33.68 23.32l-2-.61a7.2 7.2 0 0 0-.58-1.41l1-1.86A.38.38 0 0 0 32 19l-1.45-1.45a.36.36 0 0 0-.44-.07l-1.84 1a7 7 0 0 0-1.43-.61l-.61-2a.36.36 0 0 0-.36-.24h-2.05a.36.36 0 0 0-.35.26l-.61 2a7 7 0 0 0-1.44.6l-1.82-1a.35.35 0 0 0-.43.07L17.69 19a.38.38 0 0 0-.06.44l1 1.82a6.8 6.8 0 0 0-.63 1.43l-2 .6a.36.36 0 0 0-.26.35v2.05A.35.35 0 0 0 16 26l2 .61a7 7 0 0 0 .6 1.41l-1 1.91a.36.36 0 0 0 .06.43l1.45 1.45a.38.38 0 0 0 .44.07l1.87-1a7 7 0 0 0 1.4.57l.6 2a.38.38 0 0 0 .35.26h2.05a.37.37 0 0 0 .35-.26l.61-2.05a7 7 0 0 0 1.38-.57l1.89 1a.36.36 0 0 0 .43-.07L32 30.4a.35.35 0 0 0 0-.4l-1-1.88a7 7 0 0 0 .58-1.39l2-.61a.36.36 0 0 0 .26-.35v-2.1a.36.36 0 0 0-.16-.35M24.85 28a3.34 3.34 0 1 1 3.33-3.33A3.34 3.34 0 0 1 24.85 28" className="clr-i-outline clr-i-outline-path-4" /><path fill="none" d="M0 0h36v36H0z" /></svg>}
-                    name={"Menu quản trị"}
-                    href={'/dashboard'} />) : null} */}
             </div>
 
         </div>

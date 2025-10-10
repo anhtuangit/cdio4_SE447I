@@ -11,7 +11,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.approveEstate = exports.getEstate = void 0;
 const estates_models_1 = require("../models/estates.models");
-// Xem danh sách bài đăng
 const getEstate = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const estates = yield estates_models_1.modelEstate.find();
@@ -22,7 +21,6 @@ const getEstate = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.getEstate = getEstate;
-// Duyệt bài đăng
 const approveEstate = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;

@@ -9,8 +9,28 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteEstate = exports.updateEstate = exports.createEstate = exports.getAllEstate = void 0;
+exports.deleteEstate = exports.updateEstate = exports.createEstate = exports.getAllEstate = exports.getEstateById = void 0;
 const estates_models_1 = require("../models/estates.models");
+// Lấy estate theo ID
+const getEstateById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { id } = req.params;
+        const estate = yield estates_models_1.modelEstate.findById(id).populate([
+            { path: "type", select: "name" },
+            { path: "ward", select: "name", populate: { path: "city", select: "name" } },
+            { path: "id_user", select: "_id name" },
+        ]);
+        if (!estate) {
+            res.status(404).json({ success: false, message: "Estate không tồn tại" });
+            return;
+        }
+        res.status(200).json({ success: true, data: estate });
+    }
+    catch (error) {
+        res.status(500).json({ success: false, message: "Lỗi server", error });
+    }
+});
+exports.getEstateById = getEstateById;
 // Lấy danh sách estate
 const getAllEstate = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {

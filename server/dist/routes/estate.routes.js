@@ -9,6 +9,7 @@ const estate_controller_1 = require("../controllers/estate.controller");
 exports.estateRoute = express_1.default.Router();
 // Quản lý estate
 exports.estateRoute.get('/', estate_controller_1.getAllEstate);
+exports.estateRoute.get('/:id', estate_controller_1.getEstateById);
 exports.estateRoute.post('/', estate_controller_1.createEstate);
 exports.estateRoute.patch('/:id', estate_controller_1.updateEstate);
 exports.estateRoute.delete('/:id', estate_controller_1.deleteEstate);

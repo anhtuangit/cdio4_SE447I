@@ -10,7 +10,7 @@ export interface IEstate extends Document {
   type: Schema.Types.ObjectId;
   bedroom: number
   bathroom: number
-  img_urls: string[]
+  img_urls: [string]
   status: string
   id_user: mongoose.Schema.Types.ObjectId
 }
@@ -25,8 +25,8 @@ const estateSchema = new Schema<IEstate>({
   type: { type: Schema.Types.ObjectId, ref: "type", required: true },
   bedroom:{type: Number, required: true},
   bathroom:{type: Number, required: true},
-  img_urls:[{type: String, required:true}],
-  status:{type: String, enum:['waiting','approved','cancle'], default:'waiting'},
+  img_urls:{type: [String], default: ['https://example.com/default-image.jpg']},
+  status:{type: String, enum:['waiting','approved','cancel'], default:'waiting'},
   id_user: {type: mongoose.Schema.Types.ObjectId, ref:'user', required: true}
 }, { timestamps: true })
 

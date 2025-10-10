@@ -2,7 +2,6 @@ import { Request, Response } from 'express';
 import { userModel } from '../models/user.models';
 import { modelEstate } from '../models/estates.models';
 
-// Xem danh sách người dùng
 export const getUsers = async (req: Request, res: Response): Promise<void> => {
   try {
     const users = await userModel.find();
@@ -12,11 +11,10 @@ export const getUsers = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-// Khóa/Mở khóa người dùng
 export const toggleUserLock = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
-    const { lock } = req.body; // lock = true/false
+    const { lock } = req.body; 
 
     const updatedUser = await userModel.findByIdAndUpdate(id, { trang_thai: lock ? 'lock' : 'active' }, { new: true });
 
@@ -31,7 +29,6 @@ export const toggleUserLock = async (req: Request, res: Response): Promise<void>
   }
 };
 
-// Xem danh sách bài đăng
 export const getEstate = async (req: Request, res: Response): Promise<void> => {
   try {
     const estates = await modelEstate.find();
@@ -41,11 +38,10 @@ export const getEstate = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-// Duyệt bài đăng
 export const approveEstate = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
-    const { approved } = req.body; // approved = true/false
+    const { approved } = req.body; 
 
     const updatedEstate = await modelEstate.findByIdAndUpdate(id, { status: approved ? 'approved' : 'rejected' }, { new: true });
 

@@ -1,6 +1,27 @@
 import { IEstate, modelEstate } from "../models/estates.models";
 import { Request, Response } from "express";
 
+// Lấy estate theo ID
+export const getEstateById = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { id } = req.params;
+    const estate = await modelEstate.findById(id).populate([
+      { path: "type", select: "name" },
+      { path: "ward", select: "name", populate: { path: "city", select: "name" } },
+      { path: "id_user", select: "_id name" },
+    ]);
+
+    if (!estate) {
+      res.status(404).json({ success: false, message: "Estate không tồn tại" });
+      return;
+    }
+
+    res.status(200).json({ success: true, data: estate });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Lỗi server", error });
+  }
+};
+
 // Lấy danh sách estate
 export const getAllEstate = async (req: Request, res: Response): Promise<void> => {
   try {

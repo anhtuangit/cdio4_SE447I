@@ -45,8 +45,8 @@ const estateSchema = new mongoose_1.Schema({
     type: { type: mongoose_1.Schema.Types.ObjectId, ref: "type", required: true },
     bedroom: { type: Number, required: true },
     bathroom: { type: Number, required: true },
-    img_urls: [{ type: String, required: true }],
-    status: { type: String, enum: ['waiting', 'approved', 'cancle'], default: 'waiting' },
+    img_urls: { type: [String], default: ['https://example.com/default-image.jpg'] },
+    status: { type: String, enum: ['waiting', 'approved', 'cancel'], default: 'waiting' },
     id_user: { type: mongoose_1.default.Schema.Types.ObjectId, ref: 'user', required: true }
 }, { timestamps: true });
 exports.modelEstate = (0, mongoose_1.model)("estate", estateSchema);

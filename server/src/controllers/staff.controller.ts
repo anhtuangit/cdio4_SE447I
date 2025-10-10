@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import { modelEstate } from '../models/estates.models';
 
-// Xem danh sách bài đăng
 export const getEstate = async (req: Request, res: Response): Promise<void> => {
   try {
     const estates = await modelEstate.find();
@@ -11,7 +10,6 @@ export const getEstate = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-// Duyệt bài đăng
 export const approveEstate = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;

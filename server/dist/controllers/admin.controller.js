@@ -12,7 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.approveEstate = exports.getEstate = exports.toggleUserLock = exports.getUsers = void 0;
 const user_models_1 = require("../models/user.models");
 const estates_models_1 = require("../models/estates.models");
-// Xem danh sách người dùng
 const getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const users = yield user_models_1.userModel.find();
@@ -23,11 +22,10 @@ const getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.getUsers = getUsers;
-// Khóa/Mở khóa người dùng
 const toggleUserLock = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;
-        const { lock } = req.body; // lock = true/false
+        const { lock } = req.body;
         const updatedUser = yield user_models_1.userModel.findByIdAndUpdate(id, { trang_thai: lock ? 'lock' : 'active' }, { new: true });
         if (!updatedUser) {
             res.status(404).json({ success: false, message: 'Người dùng không tồn tại' });
@@ -40,7 +38,6 @@ const toggleUserLock = (req, res) => __awaiter(void 0, void 0, void 0, function*
     }
 });
 exports.toggleUserLock = toggleUserLock;
-// Xem danh sách bài đăng
 const getEstate = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const estates = yield estates_models_1.modelEstate.find();
@@ -51,11 +48,10 @@ const getEstate = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.getEstate = getEstate;
-// Duyệt bài đăng
 const approveEstate = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;
-        const { approved } = req.body; // approved = true/false
+        const { approved } = req.body;
         const updatedEstate = yield estates_models_1.modelEstate.findByIdAndUpdate(id, { status: approved ? 'approved' : 'rejected' }, { new: true });
         if (!updatedEstate) {
             res.status(404).json({ success: false, message: 'Bài đăng không tồn tại' });
