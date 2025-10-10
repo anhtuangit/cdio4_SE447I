@@ -12,12 +12,12 @@ const CreateEstate = () => {
     price: 0,
     address: "",
     ward: { _id: "", name: "", city: { _id: "", name: "" } },
-    category: { _id: "", name: "" },
+    category: "",
     type: { _id: "", name: "" },
     bedroom: 0,
     bathroom: 0,
     img_urls: [],
-    id_user: { id_: "" },
+    id_user: { _id: "" },
   });
 
   const [loading, setLoading] = useState(false);
@@ -43,7 +43,7 @@ const CreateEstate = () => {
       alert("✅ Thêm bất động sản thành công!");
       navigate("/");
     } catch (error) {
-      console.error("❌ Lỗi khi thêm bất động sản:", error);
+      console.error(" Lỗi khi thêm bất động sản:", error);
       alert("Lỗi khi thêm bất động sản");
     } finally {
       setLoading(false);
@@ -51,8 +51,8 @@ const CreateEstate = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto mt-6 p-6 bg-white shadow-lg rounded-2xl">
-      <h2 className="text-2xl font-bold mb-4">🆕 Thêm bất động sản mới</h2>
+    <div className="max-w-3xl mx-auto mt-10 p-10 bg-white shadow-lg rounded-2xl flex">
+      <h2 className="text-2xl font-bold mb-4">Thêm bất động sản mới</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input name="title" placeholder="Tiêu đề" value={formData.title} onChange={handleChange} className="border p-2 w-full rounded" />
         <textarea name="description" placeholder="Mô tả" value={formData.description} onChange={handleChange} className="border p-2 w-full rounded" />

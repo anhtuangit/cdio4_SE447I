@@ -31,7 +31,7 @@ mongoose.connect(db!)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error(err));
 
-app.use('/users', userRoutes);
+app.use('/api/users', userRoutes);
 app.use('/api/estates',estateRoute)
 app.use('/cities', cityRoute)
 app.use('/wards', wardRoute)

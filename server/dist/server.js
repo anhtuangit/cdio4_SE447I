@@ -25,7 +25,7 @@ app.use(express_1.default.json());
 mongoose_1.default.connect(db)
     .then(() => console.log('MongoDB connected'))
     .catch((err) => console.error(err));
-app.use('/users', user_routes_1.default);
+app.use('/api/users', user_routes_1.default);
 app.use('/api/estates', estate_routes_1.estateRoute);
 app.use('/cities', city_routes_1.cityRoute);
 app.use('/wards', ward_routes_1.wardRoute);

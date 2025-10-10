@@ -4,7 +4,7 @@ import { getUsers, toggleUserLock, getEstate, approveEstate } from '../controlle
 export const adminRoute = express.Router();
 
 adminRoute.get('/users', getUsers);
-adminRoute.patch('/users/:id/lock', toggleUserLock);
+adminRoute.patch('/users/:id', toggleUserLock);
 
 adminRoute.get('/posts', getEstate);
 adminRoute.patch('/posts/:id/approve', approveEstate);

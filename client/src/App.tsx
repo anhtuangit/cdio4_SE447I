@@ -11,10 +11,11 @@ import Utilities from './pages/utilities';
 import AdminDashBoard from './admin/adminDashboard';
 import { Login } from './pages/login';
 import { Register } from './pages/register';
-import CreateEstate from './pages/formCreate';
 import EstateDetail from './pages/estateDetail';
 import UserList from './admin/userList';
 import { ListRealState } from './admin/listRealState';
+import { UserDetail } from './admin/userDetail';
+import CreateEstate from './pages/createEstate';
 
 const App = () => {
   return (
@@ -24,7 +25,7 @@ const App = () => {
           <Route path='/' element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="/estates/:id" element={<EstateDetail />} />
-            <Route path="/estate/create" element={<CreateEstate />} />
+            <Route path="createEstate" element={<CreateEstate />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='/introduce' element={<Introduce />} />
@@ -38,6 +39,8 @@ const App = () => {
           <Route path='/admin' element={<AdminDashBoard />} >
             <Route index element={<UserList />} />
             <Route path="/admin/estates" element={<ListRealState />} />
+            <Route path="/admin/estates/:id" element={<EstateDetail />} />
+            <Route path="/admin/users/:id" element={<UserDetail />} />
           </Route>
         </Routes>
       </Suspense>
