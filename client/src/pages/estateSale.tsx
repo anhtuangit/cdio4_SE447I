@@ -1,133 +1,70 @@
 
 import { FaRegHeart } from "react-icons/fa";
 import FilterPrice from '../components/filterPrice';
+import type { ICardEstate } from "../dtos/getEstateCard";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import imgDf from '../../public/pexels-tomas-malik-793526-2581922.jpg'
+import Button from "../components/button";
 
 
 const EstateSale = () => {
-    const dataRent = [
-        {
-            id: 1,
-            title: "Căn hộ tiện nghi trung tâm",
-            price: "12 triệu/tháng",
-            area: "65 m²",
-            location: "Quận 1, TP.HCM",
-            image: "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg",
-            owner: "Nguyen Van A",
-            type: "Căn hộ"
-        },
-        {
-            id: 2,
-            title: "Nhà phố 2 tầng cho thuê",
-            price: "18 triệu/tháng",
-            area: "110 m²",
-            location: "Quận 7, TP.HCM",
-            image: "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg",
-            owner: "Tran Thi B",
-            type: "Nhà phố"
-        },
-        {
-            id: 3,
-            title: "Biệt thự sân vườn rộng rãi",
-            price: "40 triệu/tháng",
-            area: "250 m²",
-            location: "Thảo Điền, Quận 2",
-            image: "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg",
-            owner: "Le Van C",
-            type: "Biệt thự"
-        },
-        {
-            id: 4,
-            title: "Căn hộ mini giá rẻ",
-            price: "6 triệu/tháng",
-            area: "40 m²",
-            location: "Bình Thạnh, TP.HCM",
-            image: "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg",
-            owner: "Pham Thi D",
-            type: "Căn hộ"
-        },
-        {
-            id: 5,
-            title: "Phòng trọ sinh viên đầy đủ nội thất",
-            price: "3.5 triệu/tháng",
-            area: "25 m²",
-            location: "Tân Bình, TP.HCM",
-            image: "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg",
-            owner: "Vo Van E",
-            type: "Phòng trọ"
-        },
-        {
-            id: 6,
-            title: "Căn hộ view biển",
-            price: "15 triệu/tháng",
-            area: "80 m²",
-            location: "Nha Trang",
-            image: "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg",
-            owner: "Nguyen Thi F",
-            type: "Căn hộ"
-        },
-        {
-            id: 7,
-            title: "Nhà liền kề khu đô thị",
-            price: "20 triệu/tháng",
-            area: "120 m²",
-            location: "Hà Nội",
-            image: "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg",
-            owner: "Tran Van G",
-            type: "Nhà phố"
-        },
-        {
-            id: 8,
-            title: "Penthouse cao cấp",
-            price: "60 triệu/tháng",
-            area: "300 m²",
-            location: "TP.HCM",
-            image: "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg",
-            owner: "Do Thi H",
-            type: "Penthouse"
-        },
-    ];
+    const [estates, setEstates] = useState<ICardEstate[]>([]);
+    useEffect(() => {
+        const fetchEstates = async () => {
+            try {
+                const res = await axios.get("http://localhost:3000/api/estates", {
+                    params: { category: "sale" },
+                });
+                setEstates(res.data.data || []);
+            } catch (error) {
+                console.error("Lỗi khi tải danh sách estate:", error);
+            }
+        };
 
-    const categories = [...new Set(dataRent.map(item => item.type))];
+        fetchEstates();
+    }, []);
+
 
     return (
         <div className='w-full min-h-screen mt-8 rounded-xl p-4 flex flex-col gap-6'>
 
             <div className='justify-center flex w-[80%] h-[10px] text-xl'>
-                <span>Danh sách bất động sản bán </span>
+                <span>Danh sách bất động sản Bán </span>
             </div>
             <div className="w-full min-h-screen mt-8 rounded-xl p-6 flex flex-row gap-6">
 
                 <div className="w-[80%] bg-slate-300 min-h-screen rounded-xl p-6">
 
                     <div>
-                        {categories.map((category) => (
-                            <div key={category} className="mb-10">
-                                <h3 className="text-lg font-semibold mb-4">{category}</h3>
+                        {estates.map((estate) => (
+                            <div key={estate._id} className="mb-10">
+                                <h3 className="text-lg font-semibold mb-4">{estate.type.name}</h3>
                                 <div className="flex flex-col space-y-6 m-2 mt-6">
-                                    {dataRent
-                                        .filter((item) => item.type === category)
-                                        .map((data) => (
-                                            <div
-                                                key={data.id}
-                                                className="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-200 flex flex-row"
-                                            >
-                                                <img
-                                                    src={data.image}
-                                                    alt={data.title}
-                                                    className="w-48 h-40 object-cover m-4 rounded-xl cursor-pointer"
-                                                />
-                                                <div className="p-4 flex-1 flex flex-col">
-                                                    <h2 className="text-lg font-semibold mb-2">{data.title}</h2>
-                                                    <p className="text-sky-500 font-bold mb-2">{data.price}</p>
-                                                    <p className="text-slate-500 font-bold mb-2">Diện tích : {data.area}</p>
-                                                    <p className="text-slate-500 font-bold mb-2">Vị Trí : {data.location}</p>
-                                                    <p className="text-slate-500 font-bold mb-2">Chủ cho Thuê : {data.owner}</p>
-                                                    <div className="mt-auto flex justify-end items-center pt-4">
-                                                        <FaRegHeart className="text-slate-700 text-xl cursor-pointer hover:text-red-600" />
-                                                    </div>
-                                                </div>
+                                    <div
+                                        key={estate._id}
+                                        className="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-200 flex flex-row"
+                                    >
+                                        <img
+                                            src={imgDf}
+                                            alt="No data picture estate"
+                                            className="w-48 h-40 object-cover m-4 rounded-xl cursor-pointer"
+                                        />
+                                        <div className="p-4 flex-1 flex flex-col">
+                                            <h2 className="text-lg font-semibold mb-2">{estate.title}</h2>
+                                            <p className="text-sky-500 font-bold mb-2">Giá: {estate.price} Triệu</p>
+                                            <p className="text-slate-500 font-bold mb-2">Diện tích : {estate.acreage} m</p>
+                                            <p className="text-slate-500 font-bold mb-2">Vị Trí : {estate.address},{estate.ward.name},{estate.ward.city.name}</p>
+
+                                            <div className="mt-auto flex justify-end items-center pt-4">
+                                                <FaRegHeart className="text-slate-700 text-xl cursor-pointer hover:text-red-600" />
                                             </div>
-                                        ))}
+                                            <div className="mt-2">
+                                                <Button svg={<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><path d="M12.756 11.519V7.565a1.756 1.756 0 0 0-3.512 0v8.785l-3.362-.748a.88.88 0 0 0-.922.37l-.544.817l3.862 5.024c.332.432.847.686 1.393.686h7.085c.756 0 1.428-.484 1.667-1.202l1.782-5.35a1.76 1.76 0 0 0-.78-2.073l-3.626-2.115a1.76 1.76 0 0 0-.885-.24z" /><path stroke="currentColor" stroke-linecap="square" stroke-width="2" d="M9.244 16.351V7.566a1.756 1.756 0 0 1 3.512 0v3.954h2.158a1.76 1.76 0 0 1 .885.24l3.625 2.115a1.76 1.76 0 0 1 .781 2.073l-1.782 5.35a1.76 1.76 0 0 1-1.667 1.202H9.671c-.546 0-1.06-.254-1.393-.686L4.416 16.79l.544-.816a.88.88 0 0 1 .922-.37zM6 5.499l-1-1m11 1l1-1m-6-1.585V1.5" /></g></svg>}
+                                                    name="Chi tiết" href={`/estates/${estate._id}`} />
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         ))}
@@ -138,8 +75,6 @@ const EstateSale = () => {
                 </div>
             </div>
         </div>
-
-
     )
 }
 export default EstateSale;

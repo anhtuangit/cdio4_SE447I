@@ -5,6 +5,7 @@ export interface ICardEstate{
   description: string
   price: number
   address: string
+  acreage: number
   status: string
   ward: {_id: string, name: string, city:{_id: string,name: string}}
   category: string

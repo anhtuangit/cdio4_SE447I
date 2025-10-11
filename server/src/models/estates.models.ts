@@ -8,6 +8,7 @@ export interface IEstate extends Document {
   ward: mongoose.Schema.Types.ObjectId
   category: string
   type: Schema.Types.ObjectId;
+  acreage: number
   bedroom: number
   bathroom: number
   img_urls: [string]
@@ -23,6 +24,7 @@ const estateSchema = new Schema<IEstate>({
   ward:{type: mongoose.Schema.Types.ObjectId, ref:'ward', required: true},
   category: { type: String, enum:['rental','sale'], required: true },
   type: { type: Schema.Types.ObjectId, ref: "type", required: true },
+  acreage:{type: Number, required: true},
   bedroom:{type: Number, required: true},
   bathroom:{type: Number, required: true},
   img_urls:{type: [String], default: ['https://example.com/default-image.jpg']},

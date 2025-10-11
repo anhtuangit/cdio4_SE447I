@@ -4,6 +4,7 @@ import FilterPrice from "../components/filterPrice"
 import type { ICardEstate } from "../dtos/getEstateCard"
 import axios from "axios"
 import Button from "../components/button"
+import img from '../../public/pexels-luis-yanez-57302-206172.jpg'
 
 const Home = () => {
 
@@ -59,13 +60,16 @@ const Home = () => {
                   className="border rounded-lg bg-white shadow-md hover:shadow-yellow-400 p-4 flex flex-col gap-2 h-[500px]">
 
                   <div className="w-full p-2 h-[50%] flex">
-                    <img src={estate.img_urls} alt="No picture" />
+                    <img src={img} alt="No picture" />
                   </div>
                   <div className="w-full h-[50%] flex-col ">
                     <h3 className="text-lg font-semibold text-gray-800">{estate.title}</h3>
                     <p className="text-gray-600 line-clamp-2">{estate.description}</p>
                     <p className="text-blue-700 font-medium">
                       💰 Giá: {estate.price.toLocaleString()} triệu
+                    </p>
+                    <p className="text-blue-700 font-medium">
+                      ↕️ Diện tích: {estate.acreage} m
                     </p>
                     <p className="text-sm text-gray-500">
                       📍 {estate.address} - {estate.ward?.name}, {estate.ward?.city?.name}

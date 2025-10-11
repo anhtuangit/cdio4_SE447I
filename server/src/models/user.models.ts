@@ -7,7 +7,7 @@ export interface IUser extends Document {
   role: string
   status: string
   description?: string
-  avatar_url: string
+  avatar_url?: string
 }
 
 const userSchema = new Schema<IUser>({

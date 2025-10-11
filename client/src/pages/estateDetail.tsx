@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import type { IEstate } from "../dtos/getEstate";
+import img from '../../public/pexels-luis-yanez-57302-206172.jpg'
 
 const EstateDetail = () => {
     const { id } = useParams<{ id: string }>();
@@ -34,7 +35,7 @@ const EstateDetail = () => {
                 <button onClick={() => navigate(-1)}>⬅️ Quay lại</button>
             </div>
 
-            {estate.img_urls?.length > 0 && (
+            {/* {estate.img_urls?.length > 0 && (
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
                     {estate.img_urls.map((url, i) => (
                         <img
@@ -45,10 +46,11 @@ const EstateDetail = () => {
                         />
                     ))}
                 </div>
-            )}
+            )} */}
+            <div className="object-cover flex p-2 m-6 h-[400px] justify-center"><img src={img} alt="No data picture estate" /></div>
 
             <h1 className="text-3xl font-bold text-gray-800 mb-2">{estate.title}</h1>
-            <p className="text-gray-600 mb-4">{estate.description}</p>
+            <p className="text-gray-600 mb-4 p-2 mt-10">Mô tả: {estate.description}</p>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
                 <div className="p-3 bg-slate-100 rounded-lg">
@@ -59,6 +61,10 @@ const EstateDetail = () => {
                 <div className="p-3 bg-slate-100 rounded-lg">
                     <span className="font-semibold">📍 Địa chỉ: </span>
                     {estate.address}
+                </div>
+                <div className="p-3 bg-slate-100 rounded-lg">
+                    <span className="font-semibold">↕️ Diện tích: </span>
+                    {estate.acreage} m
                 </div>
 
                 <div className="p-3 bg-slate-100 rounded-lg">

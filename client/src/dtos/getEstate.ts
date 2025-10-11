@@ -7,6 +7,7 @@ export interface IEstate{
   ward: {_id: string, name: string, city:{_id: string,name: string}}
   category: string
   type: {_id: string, name: string}
+  acreage: number
   status: string
   bedroom: number
   bathroom: number

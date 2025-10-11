@@ -57,7 +57,7 @@ exports.getAllEstate = getAllEstate;
 // Tạo estate
 const createEstate = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { title, description, price, address, ward, category, type, bedroom, bathroom, id_user, } = req.body;
+        const { title, description, price, address, ward, category, type, acreage, bedroom, bathroom, id_user, } = req.body;
         const img_urls = req.files.map((file) => `/uploads/${file.filename}`);
         const estate = new estates_models_1.modelEstate({
             title,
@@ -67,6 +67,7 @@ const createEstate = (req, res) => __awaiter(void 0, void 0, void 0, function* (
             ward,
             category,
             type,
+            acreage,
             bedroom,
             bathroom,
             id_user,

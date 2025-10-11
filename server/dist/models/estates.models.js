@@ -43,6 +43,7 @@ const estateSchema = new mongoose_1.Schema({
     ward: { type: mongoose_1.default.Schema.Types.ObjectId, ref: 'ward', required: true },
     category: { type: String, enum: ['rental', 'sale'], required: true },
     type: { type: mongoose_1.Schema.Types.ObjectId, ref: "type", required: true },
+    acreage: { type: Number, required: true },
     bedroom: { type: Number, required: true },
     bathroom: { type: Number, required: true },
     img_urls: { type: [String], default: ['https://example.com/default-image.jpg'] },
